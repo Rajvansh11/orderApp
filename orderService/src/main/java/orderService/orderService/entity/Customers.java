@@ -1,4 +1,5 @@
-package customerService.customerService.entity;
+package orderService.orderService.entity;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -18,16 +19,16 @@ import java.util.List;
 public class Customers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "customer_id")
+    @Column(name="customer_id")
     private Long id;
 
-    @Column(name = "first_name")
+    @Column(name="first_name")
     @JsonProperty("first_name")
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name="last_name")
     @JsonProperty("last_name")
-    private String lastName;
+    private  String lastName;
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "address", columnDefinition = "jsonb")
@@ -37,27 +38,27 @@ public class Customers {
     private List<Orders> orders;
 
     @JsonProperty("phone_number")
-    @Column(name = "phone_number")
+    @Column(name="phone_number")
     private String phoneNumber;
 
     @JsonProperty("email_id")
-    @Column(name = "email_id")
+    @Column(name="email_id")
     private String emailId;
 
-    public Customers() {
-    }
+    public Customers(){}
 
-    public Customers(String firstName_, String lastName_, Address address_, String phoneNumber_, String emailId_) {
-        firstName = firstName_;
-        lastName = lastName_;
-        address = address_;
-        emailId = emailId_;
-        phoneNumber = phoneNumber_;
+    public Customers(String firstName_,String lastName_, Address address_,String phoneNumber_,String emailId_)
+    {
+        firstName=firstName_;
+        lastName=lastName_;
+        address=address_;
+        emailId=emailId_;
+        phoneNumber=phoneNumber_;
     }
-
-    public Customers(String firstName_, String lastName_, String flatNo_, String streetOrSocietyOrColony_, String city_, String state_, String zip_, String phoneNumber_, String emailId_) {
-        Address address = new Address(flatNo_, streetOrSocietyOrColony_, city_, state_, zip_);
-        new Customers(firstName_, lastName_, address, phoneNumber_, emailId_);
+    public Customers(String firstName_,String lastName_ ,String flatNo_,String streetOrSocietyOrColony_,String city_,String state_,String zip_,String phoneNumber_,String emailId_)
+    {
+        Address address=new Address(flatNo_,streetOrSocietyOrColony_,city_,state_,zip_);
+        new Customers(firstName_,lastName_,address,phoneNumber_,emailId_);
     }
 
     public String getFirstName() {

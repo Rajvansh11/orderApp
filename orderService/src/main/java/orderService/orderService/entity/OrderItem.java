@@ -1,4 +1,4 @@
-package customerService.customerService.entity;
+package orderService.orderService.entity;
 
 import jakarta.persistence.*;
 

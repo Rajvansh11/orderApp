@@ -1,10 +1,13 @@
 package customerService.customerService.service;
 
+import customerService.customerService.dto.OrderStatus;
 import customerService.customerService.entity.*;
 import customerService.customerService.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class populateDbService implements CommandLineRunner {
@@ -49,67 +52,72 @@ public class populateDbService implements CommandLineRunner {
         productRepository.save(p4);
         productRepository.save(p5);
 
-        Orders o1=new Orders(c1,3);
-        Orders o2=new Orders(c1,1);
-        Orders o3=new Orders(c3,2);
-        Orders o4=new Orders(c2,4);
+        Orders o1=new Orders(c1,3, UUID.randomUUID());
+        Orders o2=new Orders(c1,1,UUID.randomUUID());
+        Orders o3=new Orders(c3,2,UUID.randomUUID());
+        Orders o4=new Orders(c2,4,UUID.randomUUID());
 
-        orderRepository.save(o1);
+        Orders so1=orderRepository.save(o1);
 
-        orderRepository.save(o2);
-        orderRepository.save(o3);
-        orderRepository.save(o4);
+        Orders so2=orderRepository.save(o2);
+        Orders so3=orderRepository.save(o3);
+        Orders so4=orderRepository.save(o4);
 
-        OrderItem oi11=new OrderItem(3,o1,p1,false);
-        OrderItem oi12=new OrderItem(2,o1,p3,false);
-        OrderItem oi13=new OrderItem(5,o1,p5,false);
+        OrderItem oi11=new OrderItem(3,so1,p1,false);
+        OrderItem oi12=new OrderItem(2,so1,p3,false);
+        OrderItem oi13=new OrderItem(5,so1,p5,false);
 
-        OrderItemLocation oil11=new OrderItemLocation(oi11,"Jamshedpur");
-        OrderItemLocation oil12=new OrderItemLocation(oi12,"Pune");
-        OrderItemLocation oil13=new OrderItemLocation(oi13,"Ahmedabad");
 
-        OrderItem oi21=new OrderItem(3,o2,p4,false);
+        OrderItem soi11=orderItemRepository.save(oi11);
+        OrderItem soi12=orderItemRepository.save(oi12);
+        OrderItem soi13=orderItemRepository.save(oi13);
 
-        OrderItemLocation oil21=new OrderItemLocation(oi21,"Kolkata");
 
-        OrderItem oi31=new OrderItem(3,o3,p1,false);
-        OrderItem oi32=new OrderItem(1,o3,p3,false);
-
-        OrderItemLocation oil31=new OrderItemLocation(oi31,"Mumbai");
-        OrderItemLocation oil32=new OrderItemLocation(oi32,"Surat");
-
-        OrderItem oi41=new OrderItem(2,o4,p3,false);
-        OrderItem oi42=new OrderItem(6,o4,p1,false);
-        OrderItem oi43=new OrderItem(1,o4,p2,false);
-        OrderItem oi44=new OrderItem(7,o4,p5,false);
-
-        OrderItemLocation oil41=new OrderItemLocation(oi41,"Banaras");
-        OrderItemLocation oil42=new OrderItemLocation(oi42,"Raipur");
-        OrderItemLocation oil43=new OrderItemLocation(oi43,"Rourkela");
-        OrderItemLocation oil44=new OrderItemLocation(oi44,"Chennai");
-
-        orderItemRepository.save(oi11);
-        orderItemRepository.save(oi12);
-        orderItemRepository.save(oi13);
-
-        orderItemRepository.save(oi21);
-
-        orderItemRepository.save(oi31);
-        orderItemRepository.save(oi32);
-
-        orderItemRepository.save(oi41);
-        orderItemRepository.save(oi42);
-        orderItemRepository.save(oi43);
-        orderItemRepository.save(oi44);
+        OrderItemLocation oil11=new OrderItemLocation(soi11,"Jamshedpur");
+        OrderItemLocation oil12=new OrderItemLocation(soi12,"Pune");
+        OrderItemLocation oil13=new OrderItemLocation(soi13,"Ahmedabad");
 
         orderItemLocationRepository.save(oil11);
         orderItemLocationRepository.save(oil12);
         orderItemLocationRepository.save(oil13);
 
+
+
+        OrderItem oi21=new OrderItem(3,so2,p4,false);
+        OrderItem soi21=orderItemRepository.save(oi21);
+
+        OrderItemLocation oil21=new OrderItemLocation(soi21,"Kolkata");
         orderItemLocationRepository.save(oil21);
+
+
+        OrderItem oi31=new OrderItem(3,so3,p1,false);
+        OrderItem oi32=new OrderItem(1,so3,p3,false);
+
+        OrderItem soi31=orderItemRepository.save(oi31);
+        OrderItem soi32=orderItemRepository.save(oi32);
+
+
+        OrderItemLocation oil31=new OrderItemLocation(soi31,"Mumbai");
+        OrderItemLocation oil32=new OrderItemLocation(soi32,"Surat");
 
         orderItemLocationRepository.save(oil31);
         orderItemLocationRepository.save(oil32);
+
+
+        OrderItem oi41=new OrderItem(2,so4,p3,false);
+        OrderItem oi42=new OrderItem(6,so4,p1,false);
+        OrderItem oi43=new OrderItem(1,so4,p2,false);
+        OrderItem oi44=new OrderItem(7,so4,p5,false);
+
+        OrderItem soi41=orderItemRepository.save(oi41);
+        OrderItem soi42=orderItemRepository.save(oi42);
+        OrderItem soi43=orderItemRepository.save(oi43);
+        OrderItem soi44=orderItemRepository.save(oi44);
+
+        OrderItemLocation oil41=new OrderItemLocation(soi41,"Banaras");
+        OrderItemLocation oil42=new OrderItemLocation(soi42,"Raipur");
+        OrderItemLocation oil43=new OrderItemLocation(soi43,"Rourkela");
+        OrderItemLocation oil44=new OrderItemLocation(soi44,"Chennai");
 
         orderItemLocationRepository.save(oil41);
         orderItemLocationRepository.save(oil42);

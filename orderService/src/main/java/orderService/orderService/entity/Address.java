@@ -1,6 +1,7 @@
-package customerService.customerService.entity;
+package orderService.orderService.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Embeddable;
 
 import java.util.Objects;
 public class Address {
@@ -16,7 +17,6 @@ public class Address {
     {
 
     }
-
     public Address(String flatNo_,String streetOrSocietyOrColony_,String city_,String state_,String zip_)
     {
         flatNo=flatNo_;

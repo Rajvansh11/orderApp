@@ -1,7 +1,8 @@
-package customerService.customerService.repository;
+package orderService.orderService.repository;
 
-import customerService.customerService.entity.Address;
-import customerService.customerService.entity.Customers;
+
+import orderService.orderService.entity.Address;
+import orderService.orderService.entity.Customers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
