@@ -4,26 +4,27 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "products", uniqueConstraints = {@UniqueConstraint(name = "sku-uk", columnNames = "sku")})
+@Table(name = "products")
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="product_id")
     private long id;
 
+    @Column(nullable = false)
     private String size;
+    @Column(nullable = false)
     private String color;
+    @Column(nullable = false,unique = true)
     private String sku;
+    @Column(nullable = false)
     private int quantity;
 
-    @Column(name="product_name")
-    @JsonProperty("product_name")
+    @Column(name="product_name",nullable = false)
     private String productName;
-
-    @JsonProperty("cost_price")
+    @Column(name="cost_price",nullable = false)
     private int costPrice;
-
-    @JsonProperty("selling_price")
+    @Column(name="selling_price",nullable = false)
     private int sellingPrice;
 
     @OneToMany(mappedBy = "product")
@@ -115,4 +116,3 @@ public class Products {
         this.productName = productName;
     }
 }
-

@@ -1,5 +1,4 @@
-package orderService.orderService.entity;
-
+package inventoryService.inventoryService.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -38,6 +37,7 @@ public class Customers {
 
     @Column(name = "email_id",nullable = false,unique = true)
     private String emailId;
+
 
     public Customers() {
     }

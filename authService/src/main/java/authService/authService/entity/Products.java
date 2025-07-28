@@ -1,7 +1,8 @@
-package customerService.customerService.entity;
+package authService.authService.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity

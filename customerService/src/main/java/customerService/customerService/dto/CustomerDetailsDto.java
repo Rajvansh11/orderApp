@@ -2,7 +2,7 @@ package customerService.customerService.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CustomerUpdateRequestDto {
+public class CustomerDetailsDto {
 
     @JsonProperty("first_name")
     private String firstName;

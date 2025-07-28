@@ -1,15 +1,12 @@
-package orderService.orderService.entity;
+package inventoryService.inventoryService.entity;
 
-import orderService.orderService.dto.OrderStatus;
-import orderService.orderService.entity.Customers;
-import orderService.orderService.entity.OrderItem;
+import inventoryService.inventoryService.dto.OrderStatus;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-
 
 @Entity
 public class Orders {

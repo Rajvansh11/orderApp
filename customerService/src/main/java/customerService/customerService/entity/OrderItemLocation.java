@@ -20,6 +20,7 @@ public class OrderItemLocation {
     @Column(name="arrived_at",updatable = false)
     private LocalDateTime arrivedAt;
 
+    @Column(nullable = false)
     public String location;
 
     public OrderItemLocation() {

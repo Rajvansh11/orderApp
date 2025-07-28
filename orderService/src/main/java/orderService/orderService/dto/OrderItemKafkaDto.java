@@ -7,8 +7,7 @@ public class OrderItemKafkaDto {
     private Long productId;
     private int quantity;
 
-    public OrderItemKafkaDto(Long productId) {
-        this.productId = productId;
+    public OrderItemKafkaDto( ) {
     }
 
     public OrderItemKafkaDto(Long productId, int quantity) {

@@ -1,9 +1,9 @@
-package orderService.orderService.entity;
+package authService.authService.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Embeddable;
 
 import java.util.Objects;
+
 public class Address {
     @JsonProperty("flat_no")
     private String flatNo;

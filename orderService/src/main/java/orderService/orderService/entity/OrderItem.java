@@ -12,6 +12,7 @@ public class OrderItem {
     @Column(name="order_item_id")
     private Long id;
 
+    @Column(nullable = false)
     private int quantity;
 
     @ManyToOne
@@ -25,7 +26,7 @@ public class OrderItem {
     @JoinColumn(name="product_id")
     private Products product;
 
-    @Column
+    @Column(nullable = false)
     private boolean isFulfilled;
 
     public OrderItem(int quantity, Orders order, Products product,boolean isFulfilled_) {

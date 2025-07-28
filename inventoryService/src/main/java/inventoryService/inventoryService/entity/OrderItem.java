@@ -1,4 +1,4 @@
-package customerService.customerService.entity;
+package inventoryService.inventoryService.entity;
 
 import jakarta.persistence.*;
 

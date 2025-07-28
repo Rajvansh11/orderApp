@@ -1,4 +1,4 @@
-package customerService.customerService.entity;
+package authService.authService.entity;
 
 import jakarta.persistence.*;
 
@@ -87,3 +87,4 @@ public class OrderItem {
         isFulfilled = fulfilled;
     }
 }
+

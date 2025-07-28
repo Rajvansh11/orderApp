@@ -13,13 +13,14 @@ public class Users
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
     @CreationTimestamp
-    @Column(name="created_At",updatable = false)
+    @Column(name="created_At",updatable = false,nullable = false)
     private LocalDateTime createdAt;
-    @Column(name="user_name")
+    @Column(name="user_name",unique = true,nullable = false)
     private String username;
-    @Column
+    @Column(nullable = false)
     private String password;
 
     public Users(Role role,String username, String password) {

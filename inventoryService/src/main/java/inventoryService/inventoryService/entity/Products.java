@@ -1,7 +1,8 @@
-package customerService.customerService.entity;
+package inventoryService.inventoryService.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -117,3 +118,4 @@ public class Products {
         this.productName = productName;
     }
 }
+

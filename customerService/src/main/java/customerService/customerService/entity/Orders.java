@@ -19,7 +19,7 @@ public class Orders {
     @Column(name="created_at",updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name="total_line_items")
+    @Column(name="total_line_items",nullable = false)
     private int noOfItems;
 
     @Column(name="unique-id")
@@ -30,9 +30,9 @@ public class Orders {
     private Customers customer;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItem>orderItems;
+    private List<OrderItem> orderItems;
 
-    @Column(name="order_status")
+    @Column(name="order_status",nullable = false)
     private OrderStatus status;
 
     public Orders() {

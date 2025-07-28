@@ -10,9 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "customers", uniqueConstraints = {
         @UniqueConstraint(
-                name = "fn-ln-address-uk", columnNames = {"first_name", "last_name", "address"}),
-        @UniqueConstraint(name = "email-uk", columnNames = {"email_id"}),
-        @UniqueConstraint(name = "phoneNumber-uk", columnNames = {"phone_number"})
+                name = "fn-ln-address-uk", columnNames = {"first_name", "last_name", "address"})
 })
 
 public class Customers {
@@ -21,28 +19,25 @@ public class Customers {
     @Column(name = "customer_id")
     private Long id;
 
-    @Column(name = "first_name")
-    @JsonProperty("first_name")
+    @Column(name = "first_name",nullable = false)
     private String firstName;
 
     @Column(name = "last_name")
-    @JsonProperty("last_name")
     private String lastName;
 
     @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "address", columnDefinition = "jsonb")
+    @Column(name = "address", columnDefinition = "jsonb",nullable = false)
     private Address address;
 
     @OneToMany(mappedBy = "customer")
     private List<Orders> orders;
 
-    @JsonProperty("phone_number")
-    @Column(name = "phone_number")
+    @Column(name = "phone_number",nullable = false,unique = true)
     private String phoneNumber;
 
-    @JsonProperty("email_id")
-    @Column(name = "email_id")
+    @Column(name = "email_id",nullable = false,unique = true)
     private String emailId;
+
 
     public Customers() {
     }

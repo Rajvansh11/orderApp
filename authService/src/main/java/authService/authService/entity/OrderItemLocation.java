@@ -1,4 +1,4 @@
-package orderService.orderService.entity;
+package authService.authService.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "order_item_location")
+@Table(name="order_item_location")
 public class OrderItemLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,8 +17,9 @@ public class OrderItemLocation {
     private OrderItem orderItem;
 
     @CreationTimestamp
-    @Column(name = "arrived_at", updatable = false)
+    @Column(name="arrived_at",updatable = false)
     private LocalDateTime arrivedAt;
+
     @Column(nullable = false)
     public String location;
 
