@@ -19,12 +19,12 @@ import java.util.UUID;
 
 /**
  * The customer should have access to the following services
- * 1.>sign up for the website
- * 2.>update his/her details & view them
- * 3.>view all products available to buy
- * 4.>place order for items
- * 5.>track order items
- * 6.>view order history
+ * 1.>sign up for the website ->done
+ * 2.>update his/her details & view them ->done
+ * 3.>view all products available to buy ->done
+ * 4.>place order for items ->done
+ * 5.>track order items ->
+ * 6.>view order history ->done
  * 7.>cancel an order item
  * 8.>cancel an order
  */
@@ -201,5 +201,4 @@ public class CustomerService {
             return new ResponseEntity<>(ce.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-
 }

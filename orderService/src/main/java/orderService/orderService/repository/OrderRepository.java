@@ -5,4 +5,3 @@ import orderService.orderService.entity.Orders;
 
 public interface OrderRepository extends JpaRepository<Orders,Long> {
 }
-

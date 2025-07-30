@@ -32,6 +32,7 @@ public class Orders {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="order_status",nullable = false)
     private OrderStatus status;
 
