@@ -1,16 +1,16 @@
 package customerService.customerService.service;
 
-import customerService.customerService.dto.OrderStatus;
 import customerService.customerService.entity.*;
 import customerService.customerService.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class populateDbService implements CommandLineRunner {
+public class populateDbService {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -26,8 +26,8 @@ public class populateDbService implements CommandLineRunner {
     @Autowired
     OrderItemLocationRepository orderItemLocationRepository;
 
-    @Override
-    public void run(String... args) throws Exception {
+    @EventListener(ApplicationReadyEvent.class)
+    public void populateDb() throws Exception {
         Address a1=new Address("P44","TelcoColony","Jamshedpur","Jharkhand","831004");
         Address a2=new Address("M44","TwinCities","Jamshedpur","Jharkhand","831005");
         Address a3=new Address("305","Coliving Wakad","Pune","Maharashtra","411033");
@@ -123,8 +123,6 @@ public class populateDbService implements CommandLineRunner {
         orderItemLocationRepository.save(oil42);
         orderItemLocationRepository.save(oil43);
         orderItemLocationRepository.save(oil44);
-
-
 
     }
 }

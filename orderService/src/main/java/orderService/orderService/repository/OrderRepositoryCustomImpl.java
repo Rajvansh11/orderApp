@@ -1,5 +1,6 @@
 package orderService.orderService.repository;
 
+import orderService.orderService.dto.OrderItemDetailsDto;
 import orderService.orderService.dto.OrderStatus;
 import orderService.orderService.entity.Customers;
 import orderService.orderService.entity.OrderItem;
@@ -9,6 +10,7 @@ import orderService.orderService.exception.CustomException;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrderRepositoryCustomImpl implements OrderRepositoryCustom
 {
@@ -46,13 +48,12 @@ public class OrderRepositoryCustomImpl implements OrderRepositoryCustom
     }
 
     @Override
-    public List<OrderLocationDto> getOrderItemTracking(long orderId) {
-        Orders o = orderRepository.findById(orderId).orElseThrow(() -> new CustomException("Order not present"));
-        CriteriaBuilder cb = em.getCriteriaBuilder();
+    public List<OrderItemDetailsDto> getOrderItemTracking(long orderId)throws CustomException {
+        orderRepository.findById(orderId).orElseThrow(() -> new CustomException("Order not present"));
         List<OrderItem>orderItems=orderItemCustomRepositoryImpl.findItemsOfOrder(orderId);
-        /*
-        make OrderLocationDto
-        this has the product name of each item and all the list of locations of each item
-         */
+        return orderItems
+                .stream()
+                .map(item->orderItemLocationCustomRepositoryImpl.getAllPastLocationsOfOrderItem(item.getId()))
+                .collect(Collectors.toList());
     }
 }

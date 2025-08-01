@@ -32,7 +32,9 @@ public class OrderDbTransactionsService {
     @Transactional
     public void saveOrderIntoDb(Customers customer, UUID uuid, List<OrderItemKafkaDto> items)
     {
-        Orders savedOrder = orderRepository.save(new Orders());
+        Orders o=new Orders();
+        o.setStatus(OrderStatus.PENDING);
+        Orders savedOrder = orderRepository.save(o);
 
         for (OrderItemKafkaDto orderItemKafkaDto : items) {
             Products product = productRepository.findById(orderItemKafkaDto.getProductId()).orElseThrow(() -> new CustomException("The ordered product could not be found "));

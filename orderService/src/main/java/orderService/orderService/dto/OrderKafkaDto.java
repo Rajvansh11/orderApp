@@ -61,4 +61,14 @@ public class OrderKafkaDto implements Serializable {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "OrderKafkaDto{" +
+                "customerId=" + customerId +
+                ", orderItemsList=" + orderItemsList +
+                ", uuid=" + uuid +
+                ", status=" + status +
+                '}';
+    }
 }

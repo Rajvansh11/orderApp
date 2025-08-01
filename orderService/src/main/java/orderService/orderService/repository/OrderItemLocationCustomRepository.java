@@ -1,11 +1,12 @@
 package orderService.orderService.repository;
 
 import jakarta.persistence.EntityManager;
+import orderService.orderService.dto.OrderItemDetailsDto;
 import orderService.orderService.entity.OrderItemLocation;
 
 import java.util.List;
 
 public interface OrderItemLocationCustomRepository
 {
-   public List<OrderItemLocation>getAllPastLocationsOfOrderItem(long orderItemId);
+   public OrderItemDetailsDto getAllPastLocationsOfOrderItem(long orderItemId);
 }

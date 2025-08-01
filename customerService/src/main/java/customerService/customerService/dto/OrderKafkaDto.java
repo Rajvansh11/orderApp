@@ -45,4 +45,14 @@ public class OrderKafkaDto implements Serializable {
     public void setOrderItemsList(List<OrderItemKafkaDto> orderItemsList) {
         this.orderItemsList = orderItemsList;
     }
+
+    @Override
+    public String toString() {
+        return "OrderKafkaDto{" +
+                "customerId=" + customerId +
+                ", orderItemsList=" + orderItemsList +
+                ", uuid=" + uuid +
+                ", status=" + status +
+                '}';
+    }
 }

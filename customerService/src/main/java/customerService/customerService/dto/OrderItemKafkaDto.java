@@ -49,4 +49,12 @@ public class OrderItemKafkaDto implements Serializable {
         this.productId = productId;
     }
 
+    @Override
+    public String toString() {
+        return "OrderItemKafkaDto{" +
+                "quantity=" + quantity +
+                ", location='" + location + '\'' +
+                ", productId=" + productId +
+                '}';
+    }
 }
