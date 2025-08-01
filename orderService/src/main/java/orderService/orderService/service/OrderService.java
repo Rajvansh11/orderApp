@@ -37,7 +37,8 @@ public class OrderService {
     private static final Logger log = LoggerFactory.getLogger(OrderService.class);
 
     //    @KafkaListener(topics = "${kafka.topic.customer-placed-order}", groupId = "customer-placed-order-service")
-    @KafkaListener(topics = "${kafka.topic.customer-placed-order}", groupId = "${spring.kafka.consumer.group-id}")
+//    @KafkaListener(topics = "${kafka.topic.customer-placed-order}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${kafka.topic.customer-placed-order}",groupId = "order-service-group")
     public void handleCustomerOrder(@Payload OrderKafkaDto orderKafkaDto) {
         log.info("received the order payload {}",orderKafkaDto);
         List<OrderItemKafkaDto> items = orderKafkaDto.getOrderItemsList();
