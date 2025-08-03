@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+
+    <artifactId>ecommerce-platform</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>ecommerce-platform</name>
+
+    <modules>
+        <module>authService</module>
+        <module>customerService</module>
+        <module>inventoryService</module>
+        <module>orderService</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Optional: Shared Spring Boot version across modules -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.2.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Make Spring Boot plugin available to child modules -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
